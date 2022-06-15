@@ -60,10 +60,14 @@ class Program
                     break;
                 case 4:
                     operations.GetTopRecordsCountWithProductId(reviewList);
+
                     break;
                 case 5:
-                    operations.SkipTop5Records(reviewList);
+                    operations.GetAllRecords(reviewList);
                     break ;
+                    case 6:
+                        operations.SkipTop5Records(reviewList);
+                    break;
                 case 0:
                     end = false;
                     break;

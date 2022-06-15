@@ -8,7 +8,7 @@ namespace ProductReviewLinq
 {
     public class Operations
     {
-        public void GetTopThreeRecords(List<ProductReview> reviewlist)
+        public void GetTop3Records(List<ProductReview> reviewlist)
         {
             var result = reviewlist.OrderByDescending(x => x.Rating).Take(3).ToList();
             Display(result);
@@ -18,14 +18,18 @@ namespace ProductReviewLinq
             var result = list.Where(x => x.Rating > 3 && (x.ProductId == 1 || x.ProductId == 4 || x.ProductId == 9)).Take(3).ToList();
             Display(result);
         }
-
         public void GetTopRecordsCountWithProductId(List<ProductReview> list)
         {
-            var result = list.GroupBy(x => x.ProductId).Select(x => new { ProductID = x.Key, Count = x.Count() });
+            var result = list.GroupBy(x => x.ProductId).Select(x => new { ProductId = x.Key, Count = x.Count() });
             foreach (var data in result)
             {
-                Console.WriteLine(data.ProductID + " " + data.Count);
+                Console.WriteLine(data.ProductId + " " + data.Count);
             }
+        }
+        public void SkipTop5Records(List<ProductReview> list)
+        {
+            var result = list.OrderByDescending(x => x.Rating).Skip(5).ToList();
+            Display(result);
         }
         public void Display(List<ProductReview> list)
         {
@@ -33,9 +37,8 @@ namespace ProductReviewLinq
             foreach (var product in list)
             {
                 Console.WriteLine("\n");
-                Console.WriteLine("Product id "+ product.ProductId + " User id " + product.UserId + " Product Rating " + product.Rating + " Product Review " + product.Review + " Product is like " + product.IsLike);
+                Console.WriteLine(product.ProductId + " | " + product.UserId + " | " + product.Rating + " | " + product.Review + " | " + product.IsLike);
             }
         }
-     
     }
 }

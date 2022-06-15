@@ -53,7 +53,7 @@ class Program
                     operations.Display(reviewList);
                     break;
                 case 2:
-                    operations.GetTopThreeRecords(reviewList);
+                    operations.GetTop3Records(reviewList);
                     break;
                 case 3:
                     operations.GetTopRecordsWithProductId(reviewList);
@@ -61,6 +61,9 @@ class Program
                 case 4:
                     operations.GetTopRecordsCountWithProductId(reviewList);
                     break;
+                case 5:
+                    operations.SkipTop5Records(reviewList);
+                    break ;
                 case 0:
                     end = false;
                     break;

@@ -43,7 +43,7 @@ class Program
         bool end = true;
         while (end)
         {
-            Console.WriteLine("\n1.Create Product Review\n2.Retrive Top Three Records \n3.Retrive Top Record With Product Id \n4.End Of Program");
+            Console.WriteLine("\n1.Create Product Review\n2.Retrive Top Three Records \n3.Retrive Top Record With Product Id \n4.Get Top Record count with product id\n5.End Of Program");
             Console.WriteLine("\nEnter above Option");
             int option = Convert.ToInt16(Console.ReadLine());
             Operations operations = new Operations();
@@ -59,6 +59,9 @@ class Program
                     operations.GetTopRecordsWithProductId(reviewList);
                     break;
                 case 4:
+                    operations.GetTopRecordsCountWithProductId(reviewList);
+                    break;
+                case 0:
                     end = false;
                     break;
                 default:

@@ -68,6 +68,9 @@ class Program
                     case 6:
                         operations.SkipTop5Records(reviewList);
                     break;
+                case 7:
+                    operations.Datatables();
+                    break;
                 case 0:
                     end = false;
                     break;
